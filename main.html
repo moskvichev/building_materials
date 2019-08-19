@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ограждения: профнастил, модули, бетон, сетка - рабица</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body onload="init()">
+
+    <div class="page">
+        <div class="form">
+
+            <!-- Заголовок формы -->
+            <div class="form__name">Заказать забор</div>
+
+            <!-- Ввод длины -->
+            <div class="form__item form__input">
+                <div class="form__input_name">Длина забора</div>
+                <div class="form__input_control">
+                    <input type="number" id="length-wall" value="" placeholder=" 0" required min="1"
+                        oninput="inputOrder()" />
+                    <div class="form__input_measurement">метров</div>
+                </div>
+            </div>
+
+            <!-- Ввод высоты -->
+            <div class="form__item form__input">
+                <div class="form__input_name">Высота забора</div>
+                <div class="form__input_control">
+                    <input type="number" id="height-wall" value="" placeholder=" 0" required min="1"
+                        oninput="inputOrder()" />
+                    <div class="form__input_measurement">метров</div>
+                </div>
+            </div>
+
+            <!-- Ввод материала -->
+            <div class="form__item form__input">
+                <div class="form__input_name">Материал забора</div>
+                <div class="form__input_control">
+                    <select id=material required onchange="inputOrder()">
+                        <option value="" disabled selected> Выберите материал</option>
+                        <option value=400 label="Профнастил"> Профнастил 400₽ за м<sup>2</sup></option>
+                        <option value=500 label="Модули"> Модули 500₽ за м<sup>2</sup></option>
+                        <option value=700 label="Бетон"> Бетон 700₽ за м<sup>2</sup></option>
+                        <option value=200 label="Сетка рабица"> Сетка рабица 200₽ за м<sup>2</sup></option>
+                    </select>
+                    <div class="form__input_measurement"></div>
+                </div>
+            </div>
+
+            <!-- Монтаж -->
+            <div class="form__item form__input">
+                <div class="form__input_control">
+                    <input type="checkbox" id="need-assembly" value=false onchange="inputOrder()" />
+                </div>
+                <div class="form__input_name">Нужен монтаж</div>
+            </div> <br>
+
+            <!-- Вывод суммы заказа -->
+
+            <div class="form__item total">
+                <div class="total__prefix">Сумма заказа:</div>
+                <div class="total__value" id="order-total"></div>
+                <div class="total__currency">&#8381;</div>
+            </div>
+            <!-- Кнопка далее -->
+            <div class="form__item submit">
+                <button type="button" class="submitBtn" onclick="submit()">
+                    Далее
+                </button>
+            </div>
+        </div>
+    </div>
+            <!-- Страница ввода контактов -->
+    <div class="page" hidden=true>
+        <div id="back">
+            <a href="main.html">Вернуться</a>
+        </div>
+        <div class="form">
+
+            <!-- Заголовок формы -->
+            <div class="form__name">Контактные данные</div>
+
+            <!-- Имя -->
+            <div class="form__item form__input">
+                <div class="form__input_name">Имя</div>
+                <div class="form__input_control">
+                    <input type="text" id="name" required oninput="inputContact()" pattern="[А-Яа-яЁё]{4,}" />
+                    <div class="form__input_measurement"></div>
+                </div>
+            </div>
+
+            <!-- Email-->
+            <div class="form__item form__input">
+                <div class="form__input_name">Email</div>
+                <div class="form__input_control">
+                    <input type="text" id="email" required oninput="inputContact()"
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" />
+                    <div class="form__input_measurement"></div>
+                </div>
+            </div>
+
+            <!-- Phone-->
+            <div class="form__item form__input">
+                <div class="form__input_name">Телефон</div>
+                <div class="form__input_control">
+                    <input type="text" id="phone" required oninput="inputContact()" pattern="[0-9]{11,}" />
+                    <div class="form__input_measurement"></div>
+                </div>
+            </div>
+            <div id="form__information">
+                <p>Вы укомплектовали забор</p>
+                <p><span id="len"></span> <span id="metr_length"></span> и <span id="hei"></span></p>
+                <p><span id="metr_height"></span> из материала <span id="mat"></span></p>
+                <p>на сумму <span id="cost"></span> рублей</p>
+            </div>
+            <!-- Кнопка отправить -->
+            <div id="form__item submit">
+                <button type="button" class="submitBtn"
+                    onclick="submit(sendEmailInternal(document.getElementById('email').value))">
+                    Отправить
+                </button>
+            </div>
+        </div>
+    </div>
+            <!-- Страница о заказе -->
+    <div class="page" hidden=true>
+        <div id="back">
+            <a href="main.html">Вернуться</a>
+        </div>
+        <div class="form">
+            <div id="form__info-form">
+                <p id="head__text"><span id="info__name"></span>, <br>
+                    заказ №1 сформирован!</p> <br>
+                <p>Мы повторили его комплктацию <br> на почту <span id="info__email"></span></p> <br>
+                <p>В близжайшее время наш специалист <br> свяжется с вами по телефону <br><span id="info__phone"></span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+    <script src="https://smtpjs.com/smtp.js"></script>
+</body>
+
+</html>
