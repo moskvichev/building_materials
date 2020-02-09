@@ -1,0 +1,232 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: monospace;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+    /* Firefox */
+}
+/* оформление страницы и кроссбраузерность */
+html {
+    background: url(img/rabica.jpg) no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+/* оформление ссылки на главную страницу */
+#back {
+    position: absolute;
+    margin-left: 920px;
+    margin-top: -20px;
+}
+/* оформление ссылки */
+a {
+    color: white;
+}
+/* оформление формы ввода данных */
+.form {
+    background: #ffffff;
+    width: 490px;
+    margin: 30px auto;
+}
+/* оформление заголовка */
+.form__name {
+    font-size: 30px;
+    margin: 0 auto;
+    padding-top: 35px;
+    text-align: center;
+    color: #323232;
+}
+/* оформление текста input */
+.form__input_name {
+    margin-top: 25px;
+    margin-left: 100px;
+    font-size: 15px;
+    color: #525252;
+}
+/* оформление input */
+.form__input_control input {
+    width: 200px;
+    height: 35px;
+    margin: 15px;
+    border-radius: 3px;
+    border: 0.5px solid rgb(129, 129, 252);
+    outline: none;
+    margin-top: 3px;
+    margin-left: 100px;
+    background: linear-gradient(to top, #eeeded, #f5f5f5f5);
+}
+/* оформление списка материалов */
+#material {
+    width: 200px;
+    height: 35px;
+    margin: 15px;
+    border-radius: 3px;
+    border-color: rgb(171, 171, 252);
+    outline: none;
+    margin-top: 3px;
+    margin-left: 100px;
+    background: linear-gradient(to top, #eeeded, #f5f5f5f5);
+    font-size: 15px;
+    color: #525252;
+}
+/* оформление монтажа */
+#need-assembly {
+    width: 15px;
+    height: 15px;
+    background: linear-gradient(to top, #eeeded, #f5f5f5f5);
+    float: left;
+}
+/* оформление блока вывода суммы заказа */
+.form__item {
+    margin-top: 15px;
+}
+
+.total__prefix {
+    font-size: 15px;
+    color: #525252;
+    float: left;
+    margin-left: 100px;
+}
+
+#order-total {
+    font-size: 25px;
+    color: #fd5252f5;
+    float: left;
+    margin-top: -9px;
+}
+
+.total__currency {
+    font-size: 15px;
+    color: #525252;
+
+}
+/* оформление кнопки далее и отправить */
+button {
+    display: inline-block;
+    position: relative;
+    background: #5b50ff;
+    color: #fff;
+    /* box-shadow: 0 0 25px rgba(0, 0, 0, 0.75); */
+    margin-left: 100px;
+    width: 115px;
+    height: 35px;
+    margin-bottom: 35px;
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    outline: none;
+}
+
+button:disabled {
+    background: #525252;
+    font-size: 15px;
+    color: #ffffff;
+}
+
+button:disabled:before {
+    background: #525252;
+
+}
+/* оформление кнопки со стреловидным окончанием */
+button:before {
+    content: '';
+    position: absolute;
+    right: -13px;
+    top: 50%;
+    background: #5b50ff;
+    width: 25px;
+    height: 25px;
+    margin-top: -12px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.75);
+    z-index: -1;
+    transform: rotate(45deg);
+}
+
+button:before {
+    z-index: 1;
+    box-shadow: none;
+}
+
+.submitBtn {
+    display: inline-block;
+    position: relative;
+    background: #5b50ff;
+    color: #fff;
+    /* box-shadow: 0 0 25px rgba(0, 0, 0, 0.75); */
+    margin-left: 100px;
+    width: 115px;
+    height: 35px;
+    margin-bottom: 35px;
+    border: none;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    outline: none;
+}
+/* оформление не заполненной формы */
+.form__input_control input:invalid {
+    border: 0.5px solid #fca5a5;
+}
+
+.form__input_control {
+    display: inline;
+}
+/* оформление блока где происходит склонение (метр - метра - метров) */
+.form__input_measurement {
+    display: inline;
+}
+/* оформление зеленой галочки - валидности заполнения выбора материалов */
+.form__input_control select:valid+.form__input_measurement::after {
+
+    /* background: url("img/green.png") no-repeat; */
+    content: "\2714";
+    color: green;
+    width: 100px;
+    height: 100px;
+    margin-left: 58px;
+}
+/* оформление зеленой галочки - валидности заполнения input */
+
+.form__input_control input:valid+.form__input_measurement::after {
+
+    /* background: url("img/green.png") no-repeat; */
+    content: "\2714";
+    color: green;
+    width: 100px;
+    height: 100px;
+    margin-left: 15px;
+}
+/* оформление формы динамического текста  */
+#form__information {
+    margin-left: 100px;
+    font-size: 15px;
+    color: #525252;
+    font-family: monospace;
+    margin-bottom: 15px;
+}
+/* оформление текста взятых из input.value */
+span {
+    color: #458ae1;
+}
+/* оформление формы динамического текста */
+#form__info-form {
+    padding-top: 30px;
+    margin-left: 15px;
+    padding-bottom: 25px;
+    font-size: 20px;
+    color: #525252;
+    text-align: center;
+}
+/* оформление заголовка текста выполненного заказа*/
+#head__text {
+    font-size: 30px;
+}
